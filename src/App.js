@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
+import MainMenu from './components/MainMenu';
+import Quiz from './components/Quiz';
+import LastScreen from './components/LastScreen';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    // eslint-disable-next-line
+    const [currentComponent, setCurrentComponent] = useState('menu')
+
+    return (
+        <div className='App'>
+            <h1>Quiz App</h1>
+
+            {currentComponent === 'menu' && <MainMenu />}
+            {currentComponent === 'quiz' && <Quiz />}
+            {currentComponent === 'lastScreen' && <LastScreen />}
+        </div>
+    );
 }
 
 export default App;
